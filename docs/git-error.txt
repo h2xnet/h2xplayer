@@ -1,0 +1,4 @@
+git push error:
+
+（1）OpenSSL SSL_read: Connection was reset, errno 10054
+关闭SSL认证：git config --global http.sslVerify "false"
