@@ -2,18 +2,41 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 
+import "qmluilib/common/Tool.js" as Tool;
+
+import "./views/home"
+
 Window {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: 1000
+    height: 675
+    title: qsTr("慧影音")
 
-    Rectangle {
-        anchors.centerIn: parent
+    // 页面管理器
+    StackView {
+        id: stackId
 
-        width: 600
-        height: 400
-        color: "#FFFF00"
+        anchors.fill: parent
+
+        //initialItem: "qrc:/views/home/HomeView.qml"
+        onChildrenChanged: {
+
+        }
+    }
+
+    Component.onCompleted: {
+        Tool.printMsg("main.qml Component.onCompleted.");
+
+        // 初如化页面
+        stackId.push(homeViewId);
+    }
+
+    // 首页
+    Loader {
+        id: homeViewId
+
+        HomeView {
+        }
     }
 
 }

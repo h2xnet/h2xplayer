@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>qmluilib/bar/HorizontalNavigationBar.qml</file>
+        <file>qmluilib/common/GlobalValue.js</file>
+        <file>qmluilib/common/Tool.js</file>
+        <file>imgs/logo/logo_1.ico</file>
+        <file>imgs/logo/logo_1.jpeg</file>
+        <file>imgs/logo/logo_2.ico</file>
+        <file>imgs/logo/logo_2.jpeg</file>
+        <file>views/home/HomeView.qml</file>
+        <file>views/common/ConstData.js</file>
     </qresource>
 </RCC>
