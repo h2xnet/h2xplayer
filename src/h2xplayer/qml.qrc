@@ -10,5 +10,9 @@
         <file>imgs/logo/logo_2.jpeg</file>
         <file>views/home/HomeView.qml</file>
         <file>views/common/ConstData.js</file>
+        <file>views/home/play_list/PlayListView.qml</file>
+        <file>views/home/play_history/PlayHistoryView.qml</file>
+        <file>views/home/setting/SettingView.qml</file>
+        <file>views/home/about/AboutView.qml</file>
     </qresource>
 </RCC>

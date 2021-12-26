@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.0
 
 import "../common/GlobalValue.js" as GlobalValue
 import "../common/Tool.js" as Tool
@@ -14,7 +15,7 @@ import "../common/Tool.js" as Tool
 Item {
     id: ctrlRootId
 
-    signal buttonClick(var id, int index)
+    signal buttonClick(var newId, int newIndex, int oldIndex)
 
     // 允许重复标志，如果为true则会重复觖发，如果为false则不会触发
     property bool repeatEnable: false
@@ -27,17 +28,19 @@ Item {
     property int curIndex: -1
 
     // 导航栏背景色
-    property var backColor: "#FFFFFF"
+    property var backColor: "#4A708B"
     // 导航背景窗口圆角值
     property int backRadius: 10
+    // 阴影颜色
+    property var shadowColor: "#00688B"
 
     // 导航栏按钮属性
     property int buttonWidth: 120
-    property int buttonHeight: 50
+    property int buttonHeight: 40
     property int buttonRaidus: 10
 
     // 导航栏按钮间隔
-    property int buttonSpaceWidth: 2
+    property int buttonSpaceWidth: 5
 
     // 导航栏按钮边线
     property bool buttonLineEnable: true
@@ -45,8 +48,8 @@ Item {
     property var buttonLineColor: "#999999"
 
     // 导航栏按钮背景颜色
-    property var buttonDefBackColor: "#6495ED"
-    property var buttonSelBackColor: "#4169E1"
+    property var buttonDefBackColor: "transparent"
+    property var buttonSelBackColor: "#607B8B"
 
     // 导航栏按钮文本颜色
     property var buttonDefTextColor: "#000000"
@@ -58,9 +61,9 @@ Item {
 
     // 边界距离
     property int leftPadding: 10
-    property int topPadding: 5
+    property int topPadding: 10
     property int rightPadding: 10
-    property int bottomPadding: 5
+    property int bottomPadding: 10
 
     // 背景窗口
     Rectangle {
@@ -119,14 +122,15 @@ Item {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
+                                let oldIndex = curIndex;
                                 let isChanged = index == curIndex ? false : true;
                                 if (isChanged) {
                                     curIndex = index
 
-                                    buttonClick(getItemId(curIndex), curIndex);
+                                    buttonClick(getItemId(curIndex), curIndex, oldIndex);
                                 }
                                 else if (repeatEnable) {
-                                    buttonClick(getItemId(curIndex), curIndex);
+                                    buttonClick(getItemId(curIndex), curIndex, oldIndex);
                                 }
                             }
                         }
@@ -138,6 +142,16 @@ Item {
             } // end Row
 
         } // end flickableId Flickable
+
+        // 阴影
+        DropShadow {
+            anchors.fill: flickableId
+
+            source: flickableId
+            radius: backRadius
+            color: shadowColor
+            samples: 2 * backRadius
+        }
 
     } // end bkWinId Rectangle
 
@@ -223,6 +237,16 @@ Item {
             return itemObj["id"];
         }
         return "";
+    }
+
+    /*
+     * Function: getCurIndex
+     * Desc: 获取当前选中序号
+     * Author: zfs
+     * Date: 2021-12-26 15:48
+     */
+    function getCurIndex() {
+        return curIndex;
     }
 
 }

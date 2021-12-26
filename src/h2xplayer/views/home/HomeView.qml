@@ -19,7 +19,18 @@ Rectangle {
         Tool.printMsg("HomeView.qml Component.onCompleted.");
 
         // 初始化导航
-        bottomNavId.init(ConstData.getHomeNavDatas());
+        let curSelIndex = 0;
+        bottomNavId.init(ConstData.getHomeNavDatas(), curSelIndex);
+        onNavItemChanged("playListId", curSelIndex, -1);
+    }
+
+    // 页面管理器
+    StackView {
+        id: pageStackId
+
+        anchors.fill: parent
+
+        //initialItem: "qrc:/views/home/play_list/PlayListView.qml"
     }
 
     // 底部导航区域
@@ -29,11 +40,11 @@ Rectangle {
         anchors {
 
             bottom: parent.bottom
-            bottomMargin: 100
+            bottomMargin: 50
         }
 
         width: parent.width
-        height: 100
+        height: 80
         color: "transparent"
 
         HorizontalNavigationBar {
@@ -41,12 +52,46 @@ Rectangle {
 
             anchors.centerIn: parent
 
-            onButtonClick: function(id, navIndex) {
-                Tool.printMsg("HomeView.qml HorizontalNavigationBar onButtonClick id:" + id + " index:" + navIndex)
+            onButtonClick: function(newId, newIndex, oldIndex) {
+                Tool.printMsg("HomeView.qml HorizontalNavigationBar onButtonClick newId:" + newId + " newIndex:" + newIndex + " oldIndex:" + oldIndex)
+                onNavItemChanged(newId, newIndex, oldIndex);
             }
 
         } // end bottomNavId
 
     } // end bottomNavAreaId Rectangle
+
+    /*
+     * Function: onNavItemChanged
+     * Desc: 导航项改变事件
+     * Author: zfs
+     * Date: 2021-12-26 15:37
+     * @id: 导航按钮ID
+     * @index: 改变后导航按钮序号
+     * @oldIndex: 改变前导航按钮序号
+     */
+    function onNavItemChanged(id, index, oldIndex = -1) {
+        // 首先清空历史页面
+        if (pageStackId.depth > 0) {
+            pageStackId.clear();
+        }
+
+        switch(id) {
+        //case "playListId": // 播放列表
+        //    break;
+        case "playHistoryId": // 排放历史
+            pageStackId.push("qrc:/views/home/play_history/PlayHistoryView.qml");
+            break;
+        case "settingId": // 设置
+            pageStackId.push("qrc:/views/home/setting/SettingView.qml");
+            break;
+        case "aboutId": // 关于
+            pageStackId.push("qrc:/views/home/about/AboutView.qml");
+            break;
+        default:
+            pageStackId.push("qrc:/views/home/play_list/PlayListView.qml");
+            break;
+        }
+    }
 
 } // end homeViewId Rectangle
