@@ -45,6 +45,28 @@ function getScrollBarColor() {
 }
 
 /*
+ * Function: getBorderWidth
+ * Desc: 获取默认边框宽度
+ * Author: zfs
+ * Date: 2022-01-01 22:21
+ */
+var def_border_width_ = 1;
+function getBorderWidth() {
+    return def_border_width_;
+}
+
+/*
+ * Function: getBorderColor
+ * Desc: 获取默认边框颜色
+ * Author: zfs
+ * Date: 2022-01-01 22:22
+ */
+var def_border_color_ = Qt.rgba(0/255, 120/255, 116/255, 0.1);
+function getBorderColor() {
+    return def_border_color_;
+}
+
+/*
  * Function: getItemSpaceWidth
  * Desc: 获取默认项间隔
  * Author: zfs
@@ -61,7 +83,62 @@ function getItemSpaceWidth() {
  * Author: zfs
  * Date: 2022-01-01 14:11
  */
-var def_page_background_color_ = "#F8F8F8"
+var def_page_background_color_ = "#F8F8F8";
 function getPageBackgroundColor() {
     return def_page_background_color_;
+}
+
+/*
+ * Function: getTitleTextColor
+ * Desc: 获取默认标题文本颜色
+ * Author: zfs
+ * Date: 2022-01-01 22:16
+ */
+var def_title_text_color_ = "#1B1B1B";
+function getTitleTextColor() {
+    return def_title_text_color_;
+}
+
+/*
+ * Function: getTitlePixelSize
+ * Desc: 获取默认标题文字像素大小
+ * Author: zfs
+ * Date: 2022-01-01 22:17
+ */
+var def_title_pixel_size_ = 30;
+function getTitlePixelSize() {
+    return def_title_pixel_size_;
+}
+
+/*
+ * Function: getDescTextColor
+ * Desc: 获取默认描述文本颜色
+ * Author: zfs
+ * Date: 2022-01-01 22:17
+ */
+var def_desc_text_color_ = "#999999"
+function getDescTextColor() {
+    return def_desc_text_color_;
+}
+
+/*
+ * Function: getDescPixelSize
+ * Desc: 获取默认描述文字像素大小
+ * Author: zfs
+ * Date: 2022-01-01 22:18
+ */
+var def_desc_pixel_size_ = 24;
+function getDescPixelSize() {
+    return def_desc_pixel_size_;
+}
+
+/*
+ * Function: getTitleHeight
+ * Desc: 获取默认标题栏行高
+ * Author: zfs
+ * Date: 2022-01-01 22:25
+ */
+var def_title_line_height_ = 40
+function getTitleLineHeight() {
+    return def_title_line_height_;
 }

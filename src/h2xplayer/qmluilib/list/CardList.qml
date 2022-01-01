@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.2
 
 import "../common/GlobalValue.js" as GlobalValue
+import "../common/Tool.js" as Tool
 import "../card"
 
 /*
@@ -17,6 +18,13 @@ Item {
 
     // 显示滚动条
     property bool showVerticalScrollBar: true
+
+    // 数据映射模型
+    property var roleIdKey: "id"
+    property var roleTitleKey: "title"
+    property var roleDescKey: "desc"
+    property var roleCoverImgKey: "coverUrl"
+    property var roleTotalTimesKey: "totalTimes"
 
     // 数据模型
     property ListModel dataModel: ListModel{}
@@ -99,16 +107,19 @@ Item {
                     // 加载列表项
                     Loader {
                         sourceComponent: HorizontalImageCard {
-                            idValue: id
-                            nameValue: name
                             cardWidth: 800
+
+                            roleIdValue: dataModel.get(index)[roleIdKey]
+                            roleTitleValue: dataModel.get(index)[roleTitleKey]
+                            roleDescValue: dataModel.get(index)[roleDescKey]
+                            roleCoverImgIsUrl: true
+                            roleCoverImgValue: dataModel.get(index)[roleCoverImgKey]
+                            roleTotalTimesValue: Tool.getTimeStr(dataModel.get(index)[roleTotalTimesKey])
                         }
 
                         onLoaded: {
                             console.log("CardList.qml onLoaded index : " + index)
 
-                            //width: parent.width - 300
-                            //height: 240
                         }
                     } // end Loader
 

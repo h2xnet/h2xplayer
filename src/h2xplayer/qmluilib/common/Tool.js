@@ -30,3 +30,40 @@ function printMsg(msg, containsDateTime = false, logType=1) {
         break;
     }
 }
+
+/*
+ * Function: getTimeStr
+ * Desc: 获取时间字符串（把时间长度转换成字符串时间长度）
+ * Author: zfs
+ * Date: 2022-01-01 22:52
+ * @times: 被转换的时间长度，单位：秒
+ * 返回值: 时：分：秒 格式字符串
+ */
+function getTimeStr(times) {
+    if (times < 0 ) {
+        return '';
+    }
+
+    let hours = Math.floor(times / 3600);
+    let minue = Math.floor((times - hours * 3600) / 60);
+    let sec = Math.floor(times - hours * 3600 - minue * 60);
+
+    let str = '';
+    if (hours < 10) {
+        str = '0';
+    }
+    str = str + hours.toString() + ':';
+
+    if (minue < 10) {
+        str = str + '0';
+    }
+    str = str + minue.toString() + ':';
+
+    if (sec < 10) {
+        str = str + '0';
+    }
+    str = str + sec.toString();
+
+    return str;
+
+}
