@@ -14,5 +14,7 @@
         <file>views/home/play_history/PlayHistoryView.qml</file>
         <file>views/home/setting/SettingView.qml</file>
         <file>views/home/about/AboutView.qml</file>
+        <file>qmluilib/list/CardList.qml</file>
+        <file>qmluilib/card/HorizontalImageCard.qml</file>
     </qresource>
 </RCC>

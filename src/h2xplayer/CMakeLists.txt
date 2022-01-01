@@ -24,6 +24,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
+#file(GLOB QML_SRC_LIST "*.qml")
+#ADD_CUSTOM_TARGET(h2xplayer ${QML_SRC_LIST})
+
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
 if(ANDROID)

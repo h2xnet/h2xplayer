@@ -11,8 +11,8 @@ Window {
 
     visible: true
 
-    width: 1000
-    height: 675
+    width: Math.floor(Screen.desktopAvailableWidth * 0.8)
+    height: Math.floor(Screen.desktopAvailableHeight * 0.8)
     minimumWidth: 800
     minimumHeight: 600
 

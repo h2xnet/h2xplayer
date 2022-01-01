@@ -1,6 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 
+import "../../../qmluilib/common/GlobalValue.js" as GlobalValue;
+import "../../../qmluilib/common/Tool.js" as Tool;
+
 /*
  * ClassName: SettingView
  * Desc: 设置视图
@@ -13,6 +16,14 @@ Rectangle {
 
     anchors.fill: parent
 
-    color: "#122383"
+    color: GlobalValue.def_page_background_color_
+
+    Component.onCompleted: {
+        Tool.printMsg("SettingView.qml onCompleted.");
+    }
+
+    Text {
+        text: qsTr("设置页面")
+    }
 
 }
