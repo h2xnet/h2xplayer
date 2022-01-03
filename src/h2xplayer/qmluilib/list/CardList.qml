@@ -28,6 +28,11 @@ Item {
     property var roleStarKey: "star"
     property var roleSourceNameKey: "sourceName"
 
+    property var rolePlayNumsKey: "playNums"
+    property var roleLikeNumsKey: "likeNums"
+    property var roleCollectNumsKey: "collectNums"
+    property var roleForwardNumsKey: "forwardNums"
+
     // 数据模型
     property ListModel dataModel: ListModel{}
     // 数据缓存
@@ -109,15 +114,20 @@ Item {
                     // 加载列表项
                     Loader {
                         sourceComponent: HorizontalImageCard {
-                            //cardWidth: 850
+                            //cardWidth: 960
 
                             roleIdValue: dataModel.get(index)[roleIdKey]
                             roleTitleValue: dataModel.get(index)[roleTitleKey]
                             roleDescValue: dataModel.get(index)[roleDescKey]
+                            roleStarValue: dataModel.get(index)[roleStarKey]
                             roleCoverImgIsUrl: true
                             roleCoverImgValue: dataModel.get(index)[roleCoverImgKey]
                             roleTotalTimesValue: Tool.getTimeStr(dataModel.get(index)[roleTotalTimesKey])
                             roleSourceNameValue: dataModel.get(index)[roleSourceNameKey]
+                            rolePlayNumsValue: Tool.getNumberStr(dataModel.get(index)[rolePlayNumsKey])
+                            roleLikeNumsValue: Tool.getNumberStr(dataModel.get(index)[roleLikeNumsKey])
+                            roleCollectNumsValue: Tool.getNumberStr(dataModel.get(index)[roleCollectNumsKey])
+                            roleForwardNumsValue: Tool.getNumberStr(dataModel.get(index)[roleForwardNumsKey])
                         }
 
                         onLoaded: {

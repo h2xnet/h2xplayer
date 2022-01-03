@@ -20,5 +20,10 @@
         <file>qmluilib/button/HorizontalImageButton.qml</file>
         <file>qmluilib/button/VerticalImageButton.qml</file>
         <file>qmluilib/imgs/toolicon/like.png</file>
+        <file>qmluilib/imgs/toolicon/collect_bold.png</file>
+        <file>qmluilib/imgs/toolicon/forward.png</file>
+        <file>qmluilib/imgs/toolicon/recommend.png</file>
+        <file>qmluilib/imgs/toolicon/star-empty.png</file>
+        <file>qmluilib/imgs/toolicon/star-full.png</file>
     </qresource>
 </RCC>

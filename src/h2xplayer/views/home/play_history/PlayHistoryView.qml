@@ -24,7 +24,7 @@ Rectangle {
     property int padBottom: 180
 
     // 列表宽
-    property int listWidth: 900
+    property int listWidth: 1020
 
     anchors.fill: parent
 

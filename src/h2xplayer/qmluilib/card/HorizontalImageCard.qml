@@ -25,11 +25,17 @@ Rectangle {
     property bool roleCoverImgIsUrl: true   // 封面图片是否为网络图片，true则是网络图片，false则是本地图片
     property var roleCoverImgValue: ""  // 封面图片
 
-    property var roleTotalTimesValue: ''    // 总时间长度字符串
-    property var roleSourceNameValue: ''    // 来源名称
+    property var roleTotalTimesValue: ""    // 总时间长度字符串
+    property var roleSourceNameValue: ""    // 来源名称
+
+    // 统计数据
+    property var rolePlayNumsValue: "" // 播放数
+    property var roleLikeNumsValue: ""  // 点赞数
+    property var roleCollectNumsValue: ""   // 收藏数
+    property var roleForwardNumsValue: ""   // 转发数
 
     // 卡片属性
-    property int cardWidth: 850
+    property int cardWidth: 900
     property int cardHeight: 300
     property int cardRadius: 20
 
@@ -49,13 +55,14 @@ Rectangle {
 
     // 标题栏
     property int cardTitleLineHeight: GlobalValue.def_title_line_height_
-    property int cardTitleMaxLineCount: 2
+    property int cardTitleMaxLineCount: 1
     property int cardTitleHeight: cardTitleMaxLineCount * GlobalValue.def_title_line_height_
     property var cardTitleTextColor: GlobalValue.def_title_text_color_
     property var cardTitlePixelSize: GlobalValue.def_title_pixel_size_
 
     // 星级
-    property int cardStarHeight: 20
+    property int cardStarHeight: 50
+    property int cardStarSpaceWidth: 5
 
     // 描述
     property var cardDescTextColor: GlobalValue.def_desc_text_color_
@@ -64,7 +71,7 @@ Rectangle {
     // 底部选项卡
     property int cardOptionHeight: 40
     property int cardOptionSpaceWidth: 5
-    property int cardOptionItemWidth: 80
+    property int cardOptionItemWidth: 120
 
     // 设置卡片属性
     width: cardWidth
@@ -125,10 +132,9 @@ Rectangle {
             left: parent.left
             leftMargin: coverImgWidth + itemSpaceWidth * 2
         }
+
         width: parent.width - coverImgWidth - itemSpaceWidth * 3
         height: parent.height - itemSpaceWidth * 2
-        //color: "#FF2233"
-
         color: "transparent"
 
         // 标题栏
@@ -173,6 +179,27 @@ Rectangle {
 
             width: parent.width
             height: cardStarHeight
+            color: "transparent"
+
+            RowLayout {
+
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                }
+
+                spacing: cardStarSpaceWidth
+
+                Repeater {
+                    model: 5
+
+                    Image {
+
+                        sourceSize.width: 24
+                        sourceSize.height: 24
+                        source: index < roleStarValue ? "qrc:/qmluilib/imgs/toolicon/star-full.png" : "qrc:/qmluilib/imgs/toolicon/star-empty.png"
+                    }
+                }
+            }
 
         } // end starWinId Rectangle
 
@@ -180,9 +207,31 @@ Rectangle {
         Rectangle {
             id: descWinId
 
+            anchors {
+                top: starWinId.bottom
+                topMargin: 0
+            }
+
             width: parent.width
-            color: "#888888"
-        }
+            height: parent.height - cardTitleHeight - cardStarHeight - cardOptionHeight
+
+            Text {
+                id: descTextId
+
+                font.family: GlobalValue.getFontFamily()
+                font.pixelSize: GlobalValue.getFontPixelSize18()
+                color: GlobalValue.getFontColor()
+                width: parent.width
+                height: parent.height
+
+                lineHeight: 30 // 行高
+                lineHeightMode: Text.FixedHeight // 行距
+                wrapMode: Text.WrapAnywhere
+                elide: Text.ElideRight
+
+                text: roleDescValue
+            }
+        } // end descWinId Rectangle
 
         // 选项
         RowLayout {
@@ -212,33 +261,35 @@ Rectangle {
 
             } // end sourceNameId Rectangle
 
-            // 播放数
-            HorizontalImageButton {
+            // 播放数（暂时不用）
+            /*HorizontalImageButton {
                 id: playNumsId
 
-                imgWidth: 24
-                imgHeight: 24
+                imgWidth: 32
+                imgHeight: 32
                 imgIsUrl: true
-                imgPath: "qrc:/qmluilib/imgs/toolicon/like.png"
-                buttonText: "184933"
+                imgPath: "qrc:/qmluilib/imgs/toolicon/recommend.png"
+                buttonText: rolePlayNumsValue
                 itemSpaceWidth: 5
-                fontPixelSize: GlobalValue.getFontPixelSize14()
+                fontPixelSize: GlobalValue.getFontPixelSize16()
+                //borderWidth: 0
 
                 height: parent.height
                 width: cardOptionItemWidth
-            }
+            }*/
 
             // 点赞数
             HorizontalImageButton {
                 id: likeNumsId
 
-                imgWidth: 24
-                imgHeight: 24
+                imgWidth: 32
+                imgHeight: 32
                 imgIsUrl: true
                 imgPath: "qrc:/qmluilib/imgs/toolicon/like.png"
-                buttonText: "10384933"
+                buttonText: roleLikeNumsValue
                 itemSpaceWidth: 5
-                fontPixelSize: GlobalValue.getFontPixelSize14()
+                fontPixelSize: GlobalValue.getFontPixelSize16()
+                //borderWidth: 0
 
                 height: parent.height
                 width: cardOptionItemWidth
@@ -248,33 +299,36 @@ Rectangle {
             HorizontalImageButton {
                 id: collectNumsId
 
-                imgWidth: 24
-                imgHeight: 24
+                imgWidth: 32
+                imgHeight: 32
                 imgIsUrl: true
-                imgPath: "qrc:/qmluilib/imgs/toolicon/like.png"
-                buttonText: "4933"
+                imgPath: "qrc:/qmluilib/imgs/toolicon/collect_bold.png"
+                buttonText: roleCollectNumsValue
                 itemSpaceWidth: 5
-                fontPixelSize: GlobalValue.getFontPixelSize14()
+                fontPixelSize: GlobalValue.getFontPixelSize16()
+                //borderWidth: 0
 
                 height: parent.height
                 width: cardOptionItemWidth
             }
 
-            // 转发送
+            // 转发
             HorizontalImageButton {
                 id: forwardNumsId
 
-                imgWidth: 24
-                imgHeight: 24
+                imgWidth: 32
+                imgHeight: 32
                 imgIsUrl: true
-                imgPath: "qrc:/qmluilib/imgs/toolicon/like.png"
-                buttonText: "33"
+                imgPath: "qrc:/qmluilib/imgs/toolicon/forward.png"
+                buttonText: roleForwardNumsValue
                 itemSpaceWidth: 5
-                fontPixelSize: GlobalValue.getFontPixelSize14()
+                fontPixelSize: GlobalValue.getFontPixelSize16()
+                //borderWidth: 0
 
                 height: parent.height
                 width: cardOptionItemWidth
             }
+
 
         } // end optionRowId RowLayout
 

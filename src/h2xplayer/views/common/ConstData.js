@@ -46,6 +46,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 0, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 863439283923, // 播放数
+        likeNums: 38293,    // 点赞数
+        collectNums: 23,    // 收藏数
+        forwardNums: 23,    // 转发数
         tag: "vlog", // 标签，可能为空
         comment: "美丽绿色武功山之行,一生值得一去的地方"
     },
@@ -64,6 +68,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 0, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 323, // 播放数
+        likeNums: 293,    // 点赞数
+        collectNums: 23323,    // 收藏数
+        forwardNums: 33323,    // 转发数
         tag: "景点", // 标签，可能为空
         comment: "丽江玉龙雪山"
     },
@@ -82,6 +90,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 0, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 233333355323, // 播放数
+        likeNums: 2333844493,    // 点赞数
+        collectNums: 2323,    // 收藏数
+        forwardNums: 323,    // 转发数
         tag: "动作", // 标签，可能为空
         comment: "经典美国动作大片" // 备注
     },
@@ -100,6 +112,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 0, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 23323, // 播放数
+        likeNums: 2393,    // 点赞数
+        collectNums: 3323,    // 收藏数
+        forwardNums: 323,    // 转发数
         tag: "经典系列", // 标签，可能为空
         comment: ""
     },
@@ -118,6 +134,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 4300, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 90323, // 播放数
+        likeNums: 23293,    // 点赞数
+        collectNums: 13323,    // 收藏数
+        forwardNums: 923,    // 转发数
         tag: "景点", // 标签，可能为空
         comment: ""
     },
@@ -136,6 +156,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 0, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 33623, // 播放数
+        likeNums: 2953,    // 点赞数
+        collectNums: 2323,    // 收藏数
+        forwardNums: 33323,    // 转发数
         tag: "", // 标签，可能为空
         comment: ""
     },
@@ -154,6 +178,10 @@ var play_list_test_datas_ = [
         modifyTime: "", // 最后一次观看时间
         totalTimes: 4800, //总时间长度,单位:秒
         lastTimes: 0, // 上次观看历史位置
+        playNums: 3323, // 播放数
+        likeNums: 293,    // 点赞数
+        collectNums: 23323,    // 收藏数
+        forwardNums: 33323,    // 转发数
         tag: "", // 标签，可能为空
         comment: ""
     }

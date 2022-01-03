@@ -65,5 +65,41 @@ function getTimeStr(times) {
     str = str + sec.toString();
 
     return str;
+}
 
+/*
+ * Funcion: getTwoDecimal
+ * Desc: 保留两位小数值，不进行四舍五入
+ * Author: zfs
+ * Date: 2022-01-03 15:29
+ */
+function getTwoDecimal(num) {
+    return Math.floor(num * 100) / 100
+}
+
+/*
+ * Funcion: getNumberStr
+ * Desc: 获取数量字符串（把数字转换成字符串形式）
+ * Author: zfs
+ * Date: 2022-01-03 15:19
+ */
+function getNumberStr(num) {
+    if (num <= 0) {
+        return 0;
+    }
+    else if (num < 10000) {
+        // 小于1万则不变
+        return num;
+    }
+    else if (num < 100000000) {
+        // 万为单位
+        return getTwoDecimal(num / 10000) + '万';
+    }
+    else if (num < 1000000000000) {
+        // 亿为单位
+        return getTwoDecimal(num / 100000000) + '亿'
+    }
+    else {
+        return getTwoDecimal(num / 1000000000000) + '万亿'
+    }
 }

@@ -52,26 +52,32 @@ Rectangle {
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left
-            leftMargin: itemSpaceWidth
+            leftMargin: hImageButtonId.itemSpaceWidth
         }
 
-        width: imgWidth
-        height: imgHeight
+        sourceSize.width: imgWidth
+        sourceSize.height: imgHeight
         source: imgIsUrl ? imgPath : "file:///" + imgPath
     }
 
     // 按钮文本
     Text {
+        id: buttonTextId
+
         anchors {
             left: parent.left
-            leftMargin: imgWidth + 2 * itemSpaceWidth
+            leftMargin: imgWidth + 2 * hImageButtonId.itemSpaceWidth
             verticalCenter: parent.verticalCenter
         }
 
         font.family: fontFamily
         font.pixelSize: fontPixelSize
         color: fontColor
-        width: parent.width - imgWidth - 3 * itemSpaceWidth
+        width: parent.width - imgWidth - 3 * hImageButtonId.itemSpaceWidth
+
+        // 省略号
+        wrapMode: Text.NoWrap
+        elide: Text.ElideRight
 
         text: buttonText
     }
