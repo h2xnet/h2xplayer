@@ -12,6 +12,83 @@ function getFontFamily() {
 }
 
 /*
+ * Function: getFontPixelSize
+ * Desc: 获取默认字体大小
+ * Author: zfs
+ * Date: 2022-01-01 14:11
+ */
+var def_font_pixel_size_10_ = 10;
+function getFontPixelSize10() {
+    return def_font_pixel_size_10_;
+}
+
+var def_font_pixel_size_12_ = 12;
+function getFontPixelSize12() {
+    return def_font_pixel_size_12_;
+}
+
+var def_font_pixel_size_14_ = 14;
+function getFontPixelSize14() {
+    return def_font_pixel_size_14_;
+}
+
+var def_font_pixel_size_16_ = 16;
+function getFontPixelSize16() {
+    return def_font_pixel_size_16_;
+}
+
+var def_font_pixel_size_18_ = 18;
+function getFontPixelSize18() {
+    return def_font_pixel_size_18_;
+}
+
+var def_font_pixel_size_20_ = 20;
+function getFontPixelSize20() {
+    return def_font_pixel_size_20_;
+}
+
+var def_font_pixel_size_24_ = 24;
+function getFontPixelSize24() {
+    return def_font_pixel_size_24_;
+}
+
+var def_font_pixel_size_26_ = 26;
+function getFontPixelSize26() {
+    return def_font_pixel_size_26_;
+}
+
+var def_font_pixel_size_28_ = 28;
+function getFontPixelSize28() {
+    return def_font_pixel_size_28_;
+}
+
+var def_font_pixel_size_30_ = 30;
+function getFontPixelSize30() {
+    return def_font_pixel_size_30_;
+}
+
+/*
+ * Function: getFontColor
+ * Desc: 获取默认字体颜色
+ * Author: zfs
+ * Date: 2022-01-03 09:52
+ */
+var def_font_color_ = "#666666";
+function getFontColor() {
+    return def_font_color_;
+}
+
+var def_font_color_red_ = "#FF0000";
+function getFontColorRed() {
+    return def_font_color_red_;
+}
+
+var def_font_color_blue_ = "#0000FF";
+function getFontColorBlue() {
+    return def_font_color_blue_;
+}
+
+/*
  * Function: getScrollBarWidth
  * Desc: 获取默认滚动条宽
  * Author: zfs

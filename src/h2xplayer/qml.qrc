@@ -16,5 +16,9 @@
         <file>views/home/about/AboutView.qml</file>
         <file>qmluilib/list/CardList.qml</file>
         <file>qmluilib/card/HorizontalImageCard.qml</file>
+        <file>qmluilib/button/TextButton.qml</file>
+        <file>qmluilib/button/HorizontalImageButton.qml</file>
+        <file>qmluilib/button/VerticalImageButton.qml</file>
+        <file>qmluilib/imgs/toolicon/like.png</file>
     </qresource>
 </RCC>

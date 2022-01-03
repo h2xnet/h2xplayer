@@ -25,6 +25,8 @@ Item {
     property var roleDescKey: "desc"
     property var roleCoverImgKey: "coverUrl"
     property var roleTotalTimesKey: "totalTimes"
+    property var roleStarKey: "star"
+    property var roleSourceNameKey: "sourceName"
 
     // 数据模型
     property ListModel dataModel: ListModel{}
@@ -107,7 +109,7 @@ Item {
                     // 加载列表项
                     Loader {
                         sourceComponent: HorizontalImageCard {
-                            cardWidth: 800
+                            //cardWidth: 850
 
                             roleIdValue: dataModel.get(index)[roleIdKey]
                             roleTitleValue: dataModel.get(index)[roleTitleKey]
@@ -115,6 +117,7 @@ Item {
                             roleCoverImgIsUrl: true
                             roleCoverImgValue: dataModel.get(index)[roleCoverImgKey]
                             roleTotalTimesValue: Tool.getTimeStr(dataModel.get(index)[roleTotalTimesKey])
+                            roleSourceNameValue: dataModel.get(index)[roleSourceNameKey]
                         }
 
                         onLoaded: {
