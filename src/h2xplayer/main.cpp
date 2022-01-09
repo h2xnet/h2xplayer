@@ -2,6 +2,14 @@
 #include <QQmlApplicationEngine>
 #include <QIcon>
 
+#include "app.h"
+
+App g_app_;
+
+App& GetApp() {
+    return g_app_;
+}
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);

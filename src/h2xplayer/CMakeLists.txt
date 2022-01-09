@@ -11,6 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# add defined
+add_definitions(-D H2XCOMPONENT_BUILD)
+add_definitions(-D WIN32)
+add_definitions(-D H2XCORE_IMPLENT)
+
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
 # They need to be set before the find_package(Qt5 ...) call.
@@ -27,16 +32,70 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #file(GLOB QML_SRC_LIST "*.qml")
 #ADD_CUSTOM_TARGET(h2xplayer ${QML_SRC_LIST})
 
+# include path
+include_directories(${PROJECT_SOURCE_DIR}/)
+include_directories(${PROJECT_SOURCE_DIR}/../)
+include_directories(${PROJECT_SOURCE_DIR}/../../)
+include_directories(${PROJECT_SOURCE_DIR}/../../include/)
+
+if (CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
+    #debug
+    include_directories(${PROJECT_SOURCE_DIR}/../../libs/Debug/)
+
+elseif(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Release"))
+    #release
+
+    include_directories(${PROJECT_SOURCE_DIR}/../../libs/Release/)
+
+else()
+    #other
+
+    message("include path build type is not Debug and Release")
+
+endif()
+
+# library path
+if (CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
+    #debug
+    link_directories(${CMAKE_BINARY_DIR}/Debug/)
+
+elseif(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Release"))
+    #release
+    link_directories(${CMAKE_BINARY_DIR}/Release/)
+
+else()
+    #other
+
+    message("library path build type is not Debug and Release")
+
+endif()
+
+# library fileName
+link_libraries(h2xcore.lib)
+
+# header file list
+set(h2xplayer_HEADERS
+        app.h
+    )
+
+# source file list
+set(h2xplayer_SOURCES
+        main.cpp
+        app.cpp
+    )
+
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
 if(ANDROID)
     add_library(h2xplayer SHARED
-      main.cpp
+      ${h2xplayer_HEADERS} ${h2xplayer_SOURCES}
+      #main.cpp
       qml.qrc
     )
 else()
     add_executable(h2xplayer
-      main.cpp
+      ${h2xplayer_HEADERS} ${h2xplayer_SOURCES}
+      #main.cpp
       qml.qrc
     )
 endif()
