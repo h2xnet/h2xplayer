@@ -121,6 +121,8 @@ Item {
 
                         MouseArea {
                             anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
                             onClicked: {
                                 let oldIndex = curIndex;
                                 let isChanged = index == curIndex ? false : true;

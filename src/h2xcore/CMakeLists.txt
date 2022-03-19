@@ -12,6 +12,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(Qt5 COMPONENTS Core REQUIRED)
+
 include_directories(${CMAKE_SOURCE_DIR})
 
 # add defined
@@ -42,3 +44,6 @@ set_target_properties(h2xcore PROPERTIES version 1.0 SOVERSION 1)
 #
 SET_TARGET_PROPERTIES(h2xcore PROPERTIES LINKER_LANGUAGE C)
 
+target_link_libraries(h2xcore PRIVATE Qt5::Core)
+
+target_compile_definitions(h2xcore PRIVATE H2XCORE_LIBRARY)

@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # add defined
 add_definitions(-D H2XCOMPONENT_BUILD)
 add_definitions(-D WIN32)
+add_definitions(-D H2XBASE_IMPLENT)
 add_definitions(-D H2XCORE_IMPLENT)
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
@@ -71,6 +72,7 @@ else()
 endif()
 
 # library fileName
+link_libraries(h2xbase.lib)
 link_libraries(h2xcore.lib)
 
 # header file list
