@@ -18,7 +18,8 @@ public:
     Application();
     virtual ~Application();
 
-    virtual bool initApp() = 0;
+    virtual bool initApp(int argc, char* argv[]) = 0;
+    virtual void uninitApp() {}
 };
 
 } // end namespace h2xcore

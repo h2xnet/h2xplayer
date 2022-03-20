@@ -2,6 +2,9 @@
 #define APP_H
 
 #include "h2xcore/application.h"
+#include "h2xplayer/src/cache/database_cache.h"
+
+#include <QObject>
 
 /*
  * ClassName: App
@@ -10,22 +13,35 @@
  * Date: 2022-01-09 14:39
  */
 
-class App : public h2xcore::Application {
+class App : public QObject, public h2xcore::Application {
+    Q_OBJECT;
 public:
-    App();
+    static App* getInstance();
+
+    virtual bool initApp(int argc, char* argv[]) override;
+
+    virtual void uninitApp() override;
+
+    /*
+     * Function: registMetaType
+     * Desc: 注册元类型
+     * Author: zfs
+     * Date: 2022-03-20 12:29
+     */
+    void registMetaType();
+
+    DatabaseCache& getDatabaseCache() {     return db_cache_;   }
+
+protected:
+    explicit App(QObject* parent = nullptr);
     ~App();
 
-    virtual bool initApp() override;
+private:
+    static App* inst_;
 
-    void exitApp();
+    // 数据库缓存
+    DatabaseCache db_cache_;
 };
 
-/*
- * Function: GetApp
- * Desc: 获取应用对象
- * Author: zfs
- * Date: 2022-01-09 14:42
- */
-extern App& GetApp();
 
 #endif // APP_H

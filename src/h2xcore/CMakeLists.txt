@@ -24,11 +24,13 @@ add_definitions(-D H2XCORE_IMPLENT)
 set(h2xcore_h2xcore_HEADERS
         h2xcore_export.h
         application.h
+        cache.h
     )
 
 set(h2xcore_h2xcore_SOURCES
         h2xcore_dll.cpp
         application.cpp
+        cache.cpp
     )
 
 # add shared library

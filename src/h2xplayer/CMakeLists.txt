@@ -78,15 +78,18 @@ link_libraries(h2xcore.lib)
 # header file list
 set(h2xplayer_HEADERS
         app.h
+        src/cache/database_cache.h
     )
 
 # source file list
 set(h2xplayer_SOURCES
         main.cpp
         app.cpp
+        src/cache/database_cache.cpp
     )
 
-find_package(Qt5 COMPONENTS Core Quick REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick Sql REQUIRED)
+
 
 if(ANDROID)
     add_library(h2xplayer SHARED
@@ -104,5 +107,6 @@ endif()
 
 target_compile_definitions(h2xplayer
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(h2xplayer
-  PRIVATE Qt5::Core Qt5::Quick)
+
+target_link_libraries(h2xplayer PRIVATE Qt5::Core Qt5::Quick Qt5::Sql)
+#target_link_libraries(h2xplayer Qt5::Core Qt5::Quick Qt5::Sql)
