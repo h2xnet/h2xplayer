@@ -22,15 +22,21 @@ add_definitions(-D WIN32)
 add_definitions(-D H2XCORE_IMPLENT)
 
 set(h2xcore_h2xcore_HEADERS
-        h2xcore_export.h
         application.h
         cache.h
+        h2xcore_export.h
+        loader.h
+        plugin.h
+        run_manager.h
     )
 
 set(h2xcore_h2xcore_SOURCES
-        h2xcore_dll.cpp
         application.cpp
         cache.cpp
+        h2xcore_dll.cpp
+        loader.cpp
+        plugin.cpp
+        run_manager.cpp
     )
 
 # add shared library

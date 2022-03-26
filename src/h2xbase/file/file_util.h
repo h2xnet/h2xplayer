@@ -45,6 +45,26 @@ public:
      */
     static bool PathIsExist(QString path, bool create = true);
 
+    /*
+     * Function: ReadFileAll
+     * Desc: 读取文件内容
+     * Author: zfs
+     * Date: 2022-03-26 10:31
+     * @fileName: 文件名称
+     * 返回值：返回读取到的内容
+     */
+    static QString ReadFileAll(const QString& fileName);
+
+    /*
+     * Function: WriteFile
+     * Desc: 写文件内容，每次都会新建
+     * Author: zfs
+     * Date: 2022-03-26 10:32
+     * @fileName: 文件名称
+     * @data: 写入的数据
+     * 返回值：成功返回0,否则返回错误代码
+     */
+    static int WriteFile(const QString& fileName, const QString& data);
 
 };
 

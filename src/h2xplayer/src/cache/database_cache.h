@@ -30,6 +30,9 @@ public:
     virtual QString read(QString key) override;
     virtual bool remove(QString key) override;
 
+    virtual bool writeAll(QString values) override;
+    virtual QString readAll() override;
+
     void setConnectName(QString name);
 
 private:

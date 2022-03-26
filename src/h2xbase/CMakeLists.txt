@@ -25,12 +25,14 @@ set(h2xbase_h2xbase_HEADERS
         h2xbase_export.h
         file/file_util.h
         log/log.h
+        string/string_util.h
     )
 
 set(h2xbase_h2xbase_SOURCES
         h2xbase_dll.cpp
         file/file_util.cpp
         log/log.cpp
+        string/string_util.cpp
     )
 
 # add shared library

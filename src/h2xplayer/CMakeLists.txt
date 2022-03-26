@@ -55,6 +55,12 @@ else()
 
 endif()
 
+# include libffmpeg
+include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/include/)
+include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/lib/)
+include_directories(${PROJECT_SOURCE_DIR}/../)
+include_directories(${PROJECT_SOURCE_DIR}../../)
+
 # library path
 if (CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
     #debug
@@ -79,6 +85,9 @@ link_libraries(h2xcore.lib)
 set(h2xplayer_HEADERS
         app.h
         src/cache/database_cache.h
+        src/cache/file_cache.h
+        src/plugins/video_player/video_player.h
+        src/runmgr/application_run_manager.h
     )
 
 # source file list
@@ -86,6 +95,9 @@ set(h2xplayer_SOURCES
         main.cpp
         app.cpp
         src/cache/database_cache.cpp
+        src/cache/file_cache.cpp
+        src/plugins/video_player/video_player.cpp
+        src/runmgr/application_run_manager.cpp
     )
 
 find_package(Qt5 COMPONENTS Core Quick Sql REQUIRED)

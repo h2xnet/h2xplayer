@@ -75,3 +75,11 @@ QString DatabaseCache::read(QString key) {
 bool DatabaseCache::remove(QString key) {
     return false;
 }
+
+bool DatabaseCache::writeAll(QString values) {
+    return false;
+}
+
+QString DatabaseCache::readAll() {
+    return QString("");
+}

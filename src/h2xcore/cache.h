@@ -28,6 +28,9 @@ public:
     virtual QString read(QString key) = 0;
     virtual bool remove(QString key) = 0;
 
+    virtual bool writeAll(QString values) = 0;
+    virtual QString readAll() = 0;
+
 };
 
 } // end namespace h2xcore

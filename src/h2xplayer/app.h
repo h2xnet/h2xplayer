@@ -3,6 +3,7 @@
 
 #include "h2xcore/application.h"
 #include "h2xplayer/src/cache/database_cache.h"
+#include "h2xplayer/src/runmgr/application_run_manager.h"
 
 #include <QObject>
 
@@ -41,6 +42,9 @@ private:
 
     // 数据库缓存
     DatabaseCache db_cache_;
+
+    // 应用运行管理
+    ApplicationRunManager app_run_mgr_;
 };
 
 
