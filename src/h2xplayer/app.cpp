@@ -46,8 +46,8 @@ bool App::initApp(int argc, char* argv[]) {
     qDebug("App::initApp log open status: %d\n", status);
 
     // 初始化缓存
-    QString strCachePath = h2xbase::FileUtil::GetAppDataPath() + "/cache/";
-    if (h2xbase::FileUtil::PathIsExist(strCachePath, true)) {
+    QString strCachePath = h2xbase::FileUtil::getAppDataPath() + "/cache/";
+    if (h2xbase::FileUtil::pathIsExist(strCachePath, true)) {
         QString strCacheFile = strCachePath + "databaseCache.sqlite";
 
         status = db_cache_.open(strCacheFile, 0);
