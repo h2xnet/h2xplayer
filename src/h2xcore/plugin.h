@@ -21,6 +21,14 @@ public:
     virtual ~Plugin();
 
     /*
+     * Function: reset
+     * Desc: 重置插件
+     * Author: zfs
+     * Date: 2022-03-26 16:27
+     */
+    virtual void reset() = 0;
+
+    /*
      * Function: init
      * Desc: 初始化插件
      * Author: zfs

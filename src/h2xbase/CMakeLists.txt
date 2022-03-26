@@ -22,15 +22,17 @@ add_definitions(-D WIN32)
 add_definitions(-D H2XBASE_IMPLENT)
 
 set(h2xbase_h2xbase_HEADERS
-        h2xbase_export.h
+        exception/exception.h
         file/file_util.h
+        h2xbase_export.h
         log/log.h
         string/string_util.h
     )
 
 set(h2xbase_h2xbase_SOURCES
-        h2xbase_dll.cpp
+        exception/exception.cpp
         file/file_util.cpp
+        h2xbase_dll.cpp
         log/log.cpp
         string/string_util.cpp
     )

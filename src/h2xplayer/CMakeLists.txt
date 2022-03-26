@@ -41,10 +41,13 @@ include_directories(${PROJECT_SOURCE_DIR}/../../include/)
 
 if (CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
     #debug
+    message(STATUS "current build model debug")
+
     include_directories(${PROJECT_SOURCE_DIR}/../../libs/Debug/)
 
 elseif(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Release"))
     #release
+    message(STATUS "current build model release")
 
     include_directories(${PROJECT_SOURCE_DIR}/../../libs/Release/)
 
@@ -56,10 +59,27 @@ else()
 endif()
 
 # include libffmpeg
-include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/include/)
-include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/lib/)
 include_directories(${PROJECT_SOURCE_DIR}/../)
 include_directories(${PROJECT_SOURCE_DIR}../../)
+include_directories(${PROJECT_SOURCE_DIR}../../../)
+
+if (CMAKE_CL_64)
+    #x64
+    message(STATUS "current build model x64 arch")
+
+    #libffmpeg
+    include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/x64/include/)
+    link_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/x64/lib/)
+
+else(CMAKE_CL_64)
+    #x86
+    message(STATUS "current build model x64 arch")
+
+    #libffmpeg
+    include_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/x64/include/)
+    link_directories(${PROJECT_SOURCE_DIR}/../../depend/libffmpeg/x86/lib/)
+
+endif(CMAKE_CL_64)
 
 # library path
 if (CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
@@ -80,6 +100,16 @@ endif()
 # library fileName
 link_libraries(h2xbase.lib)
 link_libraries(h2xcore.lib)
+
+# library libffmpeg
+link_libraries(avcodec.lib)
+link_libraries(avdevice.lib)
+link_libraries(avfilter.lib)
+link_libraries(avformat.lib)
+link_libraries(avutil.lib)
+link_libraries(postproc.lib)
+link_libraries(swresample.lib)
+link_libraries(swscale.lib)
 
 # header file list
 set(h2xplayer_HEADERS
