@@ -25,6 +25,6 @@
         <file>qmluilib/imgs/toolicon/recommend.png</file>
         <file>qmluilib/imgs/toolicon/star-empty.png</file>
         <file>qmluilib/imgs/toolicon/star-full.png</file>
-        <file>qmluilib/plugins/video_player/VideoPlayer.qml</file>
+        <file>qmluilib/plugins/video_player/VideoPlayerWnd.qml</file>
     </qresource>
 </RCC>

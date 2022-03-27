@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 
 import "../../qmluilib/bar"
-//import "../../qmluilib/plugins/video_player"
+import "../../qmluilib/plugins/video_player"
 
 import "../../qmluilib/common/Tool.js" as Tool
 import "../common/ConstData.js" as ConstData
@@ -11,10 +11,13 @@ Rectangle {
     id: homeViewId
 
     property var pageId: "homeViewId"
+    property var mainWnd: null // 主窗口指针
 
-    anchors.fill: parent
+    VideoPlayerWnd {
+        id: videoPlayerWndId
 
-    color: "transparent"
+        visible: false
+    }
 
     Component.onCompleted: {
         Tool.printMsg("HomeView.qml Component.onCompleted.");
@@ -33,6 +36,10 @@ Rectangle {
 
         //initialItem: "qrc:/views/home/play_list/PlayListView.qml"
     }
+
+
+    anchors.fill: parent
+    color: "transparent"
 
     // 底部导航区域
     Rectangle {
@@ -100,6 +107,8 @@ Rectangle {
     //
     function openVidePlayer() {
         console.log("HomeView.qml openVideoPlayer.");
+
+        videoPlayerWndId.beginShow();
     }
 
 

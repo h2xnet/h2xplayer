@@ -37,11 +37,16 @@ Window {
         stackId.push(homeViewId);
     }
 
+    Component.onDestruction: {
+        //Tool.printMsg("main.qml Component.onDestruction.");
+    }
+
     // 首页
     Loader {
         id: homeViewId
 
         HomeView {
+            mainWnd: mainWndId
         }
     }
 

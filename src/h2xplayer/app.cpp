@@ -69,6 +69,9 @@ bool App::initApp(int argc, char* argv[]) {
     // 初始化libffmpeg库
     av_register_all();
 
+    // 注册类型
+    registMetaType();
+
     return true;
 }
 
@@ -86,8 +89,6 @@ void App::uninitApp() {
 void App::setRoot(QObject* root) {
     root_ = root;
 
-    // 设置播放插件根节点
-    h2xplugins::VideoPlayer::setQObject(root_);
 }
 
 //

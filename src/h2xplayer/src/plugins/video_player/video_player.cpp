@@ -3,20 +3,11 @@
 #include "h2xbase/file/file_util.h"
 #include "h2xbase/string/string_util.h"
 
+#include <QPainter>
 #include <QJsonObject>
 #include <QJsonArray>
 
 namespace h2xplugins {
-
-QObject* VideoPlayer::root_object_ = nullptr;
-
-QObject* VideoPlayer::getQObject() {
-    return root_object_;
-}
-
-void VideoPlayer::setQObject(QObject* obj) {
-    root_object_ = obj;
-}
 
 VideoPlayer::VideoPlayer() {
 
@@ -27,7 +18,9 @@ VideoPlayer::~VideoPlayer() {
 }
 
 void VideoPlayer::paint(QPainter *pPainter) {
-
+    if (!frame_.isNull()) {
+        pPainter->drawImage(QRect(0, 0, width(), height()), frame_);
+    }
 }
 
 int VideoPlayer::start(QString options) {

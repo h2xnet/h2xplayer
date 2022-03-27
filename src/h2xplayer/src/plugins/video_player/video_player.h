@@ -17,9 +17,6 @@ namespace h2xplugins {
 class VideoPlayer : public QQuickPaintedItem {
     Q_OBJECT
 public:
-    static QObject* getQObject();
-    static void setQObject(QObject* obj);
-
     explicit VideoPlayer();
     virtual ~VideoPlayer();
 
@@ -59,7 +56,8 @@ protected:
     virtual void paint(QPainter *pPainter);
 
 private:
-    static QObject* root_object_;
+
+    QImage frame_;
 
 };
 
