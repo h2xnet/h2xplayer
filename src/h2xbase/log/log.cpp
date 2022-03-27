@@ -79,12 +79,12 @@ bool Log::open(QString fileName, QtMsgType type) {
     msg_type_ = type;
 
     // 日志路径
-    QString logPath = FileUtil::GetAppPath();
+    QString logPath = FileUtil::getAppPath();
 
     logPath += QString("/log/"); // 增加log文件夹
 
     // 判断路径是否存在
-    if (!FileUtil::PathIsExist(logPath, true)) {
+    if (!FileUtil::pathIsExist(logPath, true)) {
         qDebug("Log::open logPath: %s is not exists.\n", logPath.toUtf8().data());
         return false;
     }
@@ -128,12 +128,12 @@ void Log::close() {
 //
 bool Log::OnRebuildLog() {
     // 日志路径
-    QString logPath = FileUtil::GetAppPath();
+    QString logPath = FileUtil::getAppPath();
 
     logPath += QString("/log/"); // 增加log文件夹
 
     // 判断路径是否存在
-    if (!FileUtil::PathIsExist(logPath, true)) {
+    if (!FileUtil::pathIsExist(logPath, true)) {
         qDebug("Log::open logPath: %s is not exists.\n", logPath.toUtf8().data());
         return false;
     }

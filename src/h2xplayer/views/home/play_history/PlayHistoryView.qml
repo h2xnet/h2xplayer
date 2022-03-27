@@ -18,6 +18,8 @@ import "../../common/ConstData.js" as ConstData;
 Rectangle {
     id: playHistoryViewId
 
+    property var controlPtrId: null // 控制项指针
+
     property int padLeft: 20
     property int padTop: 100
     property int padRight: 20

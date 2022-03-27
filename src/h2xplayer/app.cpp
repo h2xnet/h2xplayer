@@ -1,8 +1,20 @@
 #include "app.h"
 
+#if defined (__cplusplus) || defined(c_plugplus)
+extern "C" {
+#endif
+
+#include "libavformat/avformat.h"
+
+#if defined (__cplusplus) || defined(c_plugplus)
+}
+#endif
+#include "h2xplayer/src/plugins/video_player/video_player.h"
+
 #include "h2xbase/file/file_util.h"
 #include "h2xbase/log/log.h"
 #include "src/cache/database_cache.h"
+
 
 #include <QQmlEngine>
 
@@ -30,7 +42,7 @@ App* App::getInstance() {
     return App::inst_;
 }
 
-App::App(QObject* parent) : QObject(parent) {
+App::App(QObject* parent) : QObject(parent), root_(nullptr) {
 
 }
 
@@ -54,6 +66,9 @@ bool App::initApp(int argc, char* argv[]) {
         qDebug("App::initApp open cache status: %d\n", status);
     }
 
+    // 初始化libffmpeg库
+    av_register_all();
+
     return true;
 }
 
@@ -66,10 +81,23 @@ void App::uninitApp() {
 }
 
 //
+// setRoot : 设置根节点
+//
+void App::setRoot(QObject* root) {
+    root_ = root;
+
+    // 设置播放插件根节点
+    h2xplugins::VideoPlayer::setQObject(root_);
+}
+
+//
 // registMetaType : 注册类型
 //
 void App::registMetaType() {
 
     // 注册应用类
     qmlRegisterSingletonType<App>("h2xplayer.net.pc", 1, 0, "AppId", AppSingleProvider);  //
+
+    // 注册视频播放插件
+    qmlRegisterType<h2xplugins::VideoPlayer>("h2xplayer.plugin.pc", 1, 0, "VideoPlayer");
 }

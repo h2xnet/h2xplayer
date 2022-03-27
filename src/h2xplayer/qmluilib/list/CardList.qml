@@ -16,6 +16,8 @@ import "../card"
 Item {
     id: cardListId
 
+    signal cardItemOpenMedia(int index);
+
     // 显示滚动条
     property bool showVerticalScrollBar: true
 
@@ -128,6 +130,12 @@ Item {
                             roleLikeNumsValue: Tool.getNumberStr(dataModel.get(index)[roleLikeNumsKey])
                             roleCollectNumsValue: Tool.getNumberStr(dataModel.get(index)[roleCollectNumsKey])
                             roleForwardNumsValue: Tool.getNumberStr(dataModel.get(index)[roleForwardNumsKey])
+
+
+                            onOpenMediaClick: {
+                                console.log("CardList.qml onOpenMediaClick.");
+                                cardItemOpenMedia(index);
+                            }
                         }
 
                         onLoaded: {

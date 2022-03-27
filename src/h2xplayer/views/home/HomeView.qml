@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 
 import "../../qmluilib/bar"
+//import "../../qmluilib/plugins/video_player"
 
 import "../../qmluilib/common/Tool.js" as Tool
 import "../common/ConstData.js" as ConstData
@@ -80,18 +81,26 @@ Rectangle {
         //case "playListId": // 播放列表
         //    break;
         case "playHistoryId": // 排放历史
-            pageStackId.push("qrc:/views/home/play_history/PlayHistoryView.qml");
+            pageStackId.push("qrc:/views/home/play_history/PlayHistoryView.qml", {controlPtrId: homeViewId});
             break;
         case "settingId": // 设置
-            pageStackId.push("qrc:/views/home/setting/SettingView.qml");
+            pageStackId.push("qrc:/views/home/setting/SettingView.qml", {controlPtrId: homeViewId});
             break;
         case "aboutId": // 关于
-            pageStackId.push("qrc:/views/home/about/AboutView.qml");
+            pageStackId.push("qrc:/views/home/about/AboutView.qml", {controlPtrId: homeViewId});
             break;
         default:
-            pageStackId.push("qrc:/views/home/play_list/PlayListView.qml");
+            pageStackId.push("qrc:/views/home/play_list/PlayListView.qml", {controlPtrId: homeViewId});
             break;
         }
     }
+
+    //
+    // openVidePlayer : 打开视频播放器
+    //
+    function openVidePlayer() {
+        console.log("HomeView.qml openVideoPlayer.");
+    }
+
 
 } // end homeViewId Rectangle

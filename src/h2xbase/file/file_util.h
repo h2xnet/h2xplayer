@@ -20,43 +20,52 @@ public:
     ~FileUtil() = delete ;
 
     /*
-     * Function: GetAppPath
+     * Function: getAppPath
      * Desc: 获取应用路径
      * Author: zfs
      * Date: 2022-03-19 17:49
      */
-    static QString GetAppPath();
+    static QString getAppPath();
 
     /*
-     * Function: GetAppDataPath
+     * Function: getAppDataPath
      * Desc: 获取应用缓存路径
      * Author: zfs
      * Date: 2022-03-19 17:25
      */
-    static QString GetAppDataPath();
+    static QString getAppDataPath();
 
     /*
-     * Function: PathIsExist
+     * Function: pathIsExist
      * Desc: 判断路径是否存在
      * Author: zfs
      * Date: 2022-03-19 17:53
      * @path: 被判断的路径
      * @create: 如果不存在，是否创建标志
      */
-    static bool PathIsExist(QString path, bool create = true);
+    static bool pathIsExist(QString path, bool create = true);
 
     /*
-     * Function: ReadFileAll
+     * Function: getFileSize
+     * Desc: 获取文件大小
+     * Author: zfs
+     * Date: 2022-03-26 19:45
+     * @fileName: 文件名
+     */
+    static qint64 getFileSize(const QString& fileName);
+
+    /*
+     * Function: readFileAll
      * Desc: 读取文件内容
      * Author: zfs
      * Date: 2022-03-26 10:31
      * @fileName: 文件名称
      * 返回值：返回读取到的内容
      */
-    static QString ReadFileAll(const QString& fileName);
+    static QString readFileAll(const QString& fileName);
 
     /*
-     * Function: WriteFile
+     * Function: writeFile
      * Desc: 写文件内容，每次都会新建
      * Author: zfs
      * Date: 2022-03-26 10:32
@@ -64,7 +73,7 @@ public:
      * @data: 写入的数据
      * 返回值：成功返回0,否则返回错误代码
      */
-    static int WriteFile(const QString& fileName, const QString& data);
+    static int writeFile(const QString& fileName, const QString& data);
 
 };
 

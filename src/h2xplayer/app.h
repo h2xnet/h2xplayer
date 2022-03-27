@@ -23,6 +23,9 @@ public:
 
     virtual void uninitApp() override;
 
+    void setRoot(QObject* root);
+    QObject* getRoot() {    return root_;   }
+
     /*
      * Function: registMetaType
      * Desc: 注册元类型
@@ -39,6 +42,9 @@ protected:
 
 private:
     static App* inst_;
+
+    // 根节点
+    QObject* root_;
 
     // 数据库缓存
     DatabaseCache db_cache_;

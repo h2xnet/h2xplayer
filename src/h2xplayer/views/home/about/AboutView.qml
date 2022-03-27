@@ -14,6 +14,8 @@ import "../../../qmluilib/common/Tool.js" as Tool;
 Rectangle {
     id: aboutViewId
 
+    property var controlPtrId: null // 控制项指针
+
     anchors.fill: parent
 
     color: GlobalValue.def_page_background_color_

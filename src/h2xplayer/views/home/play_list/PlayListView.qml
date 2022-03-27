@@ -17,6 +17,8 @@ import "../../common/ConstData.js" as ConstData;
 Rectangle {
     id: playListViewId
 
+    property var controlPtrId: null // 控制项指针
+
     property int padLeft: 20
     property int padTop: 100
     property int padRight: 20
@@ -45,6 +47,12 @@ Rectangle {
         listId.init(list);
     }
 
+    function onOpenMedia() {
+        if (controlPtrId !== null) {
+            controlPtrId.openVidePlayer();
+        }
+    }
+
     // 列表
     CardList {
         id: listId
@@ -58,6 +66,11 @@ Rectangle {
         showVerticalScrollBar: false
         width: listWidth
         height: parent.height - playListViewId.padTop - playListViewId.padBottom
+
+        onCardItemOpenMedia: function(index) {
+            console.log("PlayListView.qml onCardItemOpenMedia index: " + index);
+            onOpenMedia();
+        }
 
     } // end CardList
 

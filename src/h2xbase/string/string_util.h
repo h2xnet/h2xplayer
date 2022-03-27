@@ -22,11 +22,11 @@ public:
     StringUtil() = delete;
     ~StringUtil() = delete;
 
-    static QString ConvertQJsonObjectToQString(const QJsonObject& obj);
-    static QString ConvertQJsonArrayToQString(const QJsonArray& arrObj);
+    static QString convertQJsonObjectToQString(const QJsonObject& obj);
+    static QString convertQJsonArrayToQString(const QJsonArray& arrObj);
 
-    static bool ConvertQStringToQJsonObject(const QString& src, QJsonObject& obj);
-    static bool ConvertQStringToQJsonArray(const QString& src, QJsonArray& arrObj);
+    static bool convertQStringToQJsonObject(const QString& src, QJsonObject& obj);
+    static bool convertQStringToQJsonArray(const QString& src, QJsonArray& arrObj);
 
 };
 

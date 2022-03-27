@@ -78,6 +78,14 @@ public:
     virtual void run() = 0;
 
     /*
+     * Function: isInited
+     * Desc: 判断插件初始化状态
+     * Author: zfs
+     * Date: 2022-03-26 20:14
+     */
+    virtual bool isInited() = 0;
+
+    /*
      * Function: isRunning
      * Desc: 判断插件运行状态
      * Author: zfs

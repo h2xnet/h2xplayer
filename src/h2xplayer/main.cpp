@@ -26,6 +26,10 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
+    // 初始化播放插件
+    QObject* root = engine.rootObjects().first();
+    App::getInstance()->setRoot(root);
+
     int ret = app.exec();
 
     // 反初始化应用

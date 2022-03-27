@@ -8,23 +8,23 @@
 namespace h2xbase {
 
 //
-// GetAppPath : 获取应用路径
+// getAppPath : 获取应用路径
 //
-QString FileUtil::GetAppPath() {
+QString FileUtil::getAppPath() {
     return QCoreApplication::applicationDirPath();
 }
 
 //
 // GetAppDataPath : 获取应用缓存路径
 //
-QString FileUtil::GetAppDataPath() {
+QString FileUtil::getAppDataPath() {
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
 }
 
 //
-// PathIsExist : 判断路径是否存在
+// pathIsExist : 判断路径是否存在
 //
-bool FileUtil::PathIsExist(QString path, bool create) {
+bool FileUtil::pathIsExist(QString path, bool create) {
     if (path.isEmpty()) {
         return true;
     }
@@ -41,9 +41,20 @@ bool FileUtil::PathIsExist(QString path, bool create) {
 }
 
 //
-// ReadFileAll : 读取文件内容
+// getFileSize : 获取文件大小
 //
-QString FileUtil::ReadFileAll(const QString& fileName) {
+qint64 FileUtil::getFileSize(const QString& fileName) {
+    QFileInfo info(fileName);
+    if (info.exists()) {
+        return info.size();
+    }
+    return -1;
+}
+
+//
+// readFileAll : 读取文件内容
+//
+QString FileUtil::readFileAll(const QString& fileName) {
     if (fileName.isEmpty()) {
         return QString("");
     }
@@ -60,9 +71,9 @@ QString FileUtil::ReadFileAll(const QString& fileName) {
 }
 
 //
-// WriteFile : 写文件
+// writeFile : 写文件
 //
-int FileUtil::WriteFile(const QString& fileName, const QString& data) {
+int FileUtil::writeFile(const QString& fileName, const QString& data) {
     if (fileName.isEmpty()) {
         return -1;
     }

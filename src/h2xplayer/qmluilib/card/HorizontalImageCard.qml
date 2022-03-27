@@ -16,6 +16,8 @@ import "../common/GlobalValue.js" as GlobalValue;
 Rectangle {
     id: cradId
 
+    signal openMediaClick();
+
     // 卡片角色数据
     property var roleIdValue: ""    // ID
     property var roleTitleValue: "" // 标题
@@ -120,6 +122,15 @@ Rectangle {
             }
         }
 
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: {
+                openMediaClick();
+            }
+        }
+
     } // end coverImgId Image
 
     // 右边介绍信息
@@ -166,6 +177,16 @@ Rectangle {
 
                 text: roleTitleValue
             }
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    openMediaClick();
+                }
+            }
+
         } // end titleWinId Rectangle
 
         // 星级

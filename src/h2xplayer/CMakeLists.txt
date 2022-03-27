@@ -116,7 +116,10 @@ set(h2xplayer_HEADERS
         app.h
         src/cache/database_cache.h
         src/cache/file_cache.h
+        src/plugins/video_player/video_audio.h
+        src/plugins/video_player/video_control.h
         src/plugins/video_player/video_player.h
+        src/plugins/video_player/video_thread.h
         src/runmgr/application_run_manager.h
     )
 
@@ -126,7 +129,10 @@ set(h2xplayer_SOURCES
         app.cpp
         src/cache/database_cache.cpp
         src/cache/file_cache.cpp
+        src/plugins/video_player/video_audio.cpp
+        src/plugins/video_player/video_control.cpp
         src/plugins/video_player/video_player.cpp
+        src/plugins/video_player/video_thread.cpp
         src/runmgr/application_run_manager.cpp
     )
 
